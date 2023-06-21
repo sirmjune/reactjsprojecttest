@@ -1,4 +1,5 @@
 import { useGetPostsQuery } from './api/api';
+import Card from "./components/ui/Card";
 
 
 const HomePage = () => {
@@ -15,16 +16,17 @@ const HomePage = () => {
                         return <div>Error fetching posts</div>;
                 }
 
-                return (
+                return (<Card>
                     <div>
 
                             {posts && posts.map((post) => (
                                 <div key={post.id}>
-                                        <h2>{post.title}</h2>
-                                        <p>{post.author}</p>
+                                        <h2>Title: {post.title}</h2>
+                                        <p>Author: {post.author}</p>
                                 </div>
                             ))}
                     </div>
+                    </Card>
                 );
 
 }
